@@ -127,6 +127,14 @@ def get_currency_code(country_name):
         if entry['country'].lower() == country_name.lower():
             return entry['currency_code']
     return None
+
+def get_currency_name(country_code):
+    with open('currency_code.json', 'r', encoding='utf-8') as file:
+        code = json.load(file)
+    for entry in code:
+        if entry['currency_code'].lower() == country_code.lower():
+            return entry['country']
+    return None
 def get_exchange_rate(base_currency, target_currency):
     target_currency = get_currency_code(target_currency)
     api_key = os.getenv("EXCHANGERATE_API_KEY")
@@ -223,7 +231,7 @@ from_currency = st.sidebar.selectbox("From Currency", ["USD", "EUR", "GBP", "JPY
 to_currency = st.sidebar.selectbox("To Currency", ["EUR", "GBP", "JPY", "USD"])
 
 if st.sidebar.button("Convert"):
-    rate = get_exchange_rate(from_currency, to_currency)
+    rate = get_exchange_rate(from_currency, get_currency_name(to_currency))
     if rate:
         converted_amount = amount * rate
         st.sidebar.write(f"{amount} {from_currency} = {converted_amount:.2f} {to_currency}")
