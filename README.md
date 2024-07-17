@@ -71,3 +71,6 @@ The development of the AI Travel Companion MVP involved several key steps and de
 6. Testing and Refinement: Throughout the development process, I continuously tested the application, identifying and fixing bugs, and refining the user experience based on simulated user interactions.
 
 The main challenges were balancing feature richness with MVP simplicity, managing API integrations, and ensuring good performance. I addressed these through careful feature selection, robust error handling, and performance optimizations.
+
+## Demo video
+https://drive.google.com/file/d/11se9QkpBCwmxvRXwW00q93q7g1BDUnN1/view?usp=sharing
